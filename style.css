@@ -1,0 +1,62 @@
+html{
+background-color: antiquewhite;
+
+}
+.contain{
+    width:400px;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color: #3B4455;
+    margin:auto;
+    margin-top:120px;
+    border-radius: 20px;
+    border:rgb(255, 255, 255) 2px solid;
+}
+.mbox{
+    margin-top:40px;
+    grid-column: 1/5;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:40px;
+}
+.mbox input{
+    grid-column:1/1;
+    padding:10px;
+    color:white;
+    font-size:20px;
+    background-color: #2F3332;
+    border-radius:10px;
+    border:rgba(255, 255, 255,0.5) 2px solid;
+}
+.mbox,.box1,.box2,.box3,.box4,.box5{
+    
+    margin:17px 24px;
+   
+}
+.box1,.box2,.box3,.box4{ 
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column: 1/5;
+    grid-template-rows: 40px;
+   column-gap: 10px;
+}
+.box5{
+    grid-column:1/5;
+    display:grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 40px;
+    column-gap: 10px;
+    margin-bottom:40px;
+}
+.box1 input,.box2 input,.box3 input,.box4 input,.box5 input{
+    border-radius:10px;
+    font-size: 20px;
+    background-color: #2F3332;
+    color:white;
+    border:rgba(255, 255, 255,0.3) 1px solid;
+
+}
+.box1 input:hover,.box2 input:hover,.box3 input:hover,.box4 input:hover,.box5 input:hover{
+    background-color: rgba(47, 51, 50,0.5);
+    
+}
