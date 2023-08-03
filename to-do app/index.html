@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body{
+        background-color: rgb(50, 46, 46);
+      }
+     .bbox{
+      height:500px;
+      width:800px;
+      margin: auto;
+      background-color: rgb(198, 122, 136);
+      text-align: center;
+      margin-top:100px;
+      border-radius: 20px;
+      border:5px solid grey;
+     }
+     .head {
+      font-size: 30px;
+      margin-top:20px;
+      font-family: cursive;
+      text-shadow: 5px;
+      
+     }
+     
+      .div{
+        margin-top:20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+       justify-content: center;
+      }
+      input{
+      width:auto;
+      height:50px;
+      grid-column: 1/3;
+      margin-left:100px;
+      border-radius: 10px;
+      background-color: rgb(106, 106, 252);
+      color:white;
+      font-family:'Times New Roman', Times, serif;
+      font-weight: 10px;
+      
+     }
+     button{
+      width:100px;
+      height:50px;
+      grid-column: 3/4;
+      border-radius: 10px;
+      background-color:rgb(235, 138, 103);
+      
+     }
+     #mdiv{
+      
+      grid-column: 1/3;
+     }
+      #task{
+        text-align: left;        
+       border:2px solid gray;
+        border-radius:10px;
+        width:auto;
+        margin-left:100px;
+        display:grid;
+        background-color: rgba(240, 255, 255,0.5);
+        grid-template-columns:7fr 1fr;
+      }
+      #task p{
+        margin-left:10px;
+        padding-top:6px;
+        color:red;
+        font-size: 20px;
+        
+      }
+      .cbut{
+        
+        
+        display:grid;
+        justify-content: center;
+        align-content: center;
+      }
+      .cbut img{
+       
+        height:17px;
+        
+      }
+      
+    </style>
+</head>
+<body>
+  
+    <div class="bbox">
+      <h class="head">TO-DO LIST</h>
+      <div class="div">
+        <input type="text" id="given">
+        <button id="but">Add</button>
+        <div id="mdiv">
+          <!--<div id="task">
+            
+            <span class="cbut"><img src="close.png"></span>
+          </div> -->
+        </div>
+              
+      </div>    
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    let given=document.getElementById('given');
+    let but=document.getElementById('but');
+    let mdiv=document.getElementById('mdiv');
+    let todo=[];
+    but.addEventListener('click',()=>{
+          todo.push(given.value);
+          
+          additem(given.value);
+          given.value='';
+    });
+  function additem(val){
+    let ndiv=document.createElement('div');
+    let ele=document.createElement('p');
+    let cut=document.createElement('span');
+    let ig=document.createElement('img');
+    ig.src='close.png';
+    ndiv.setAttribute('id','task');
+    cut.setAttribute('class','cbut');
+
+    cut.appendChild(ig);
+    ele.innerText=val;
+    
+    ndiv.appendChild(ele);
+    ndiv.appendChild(cut);
+    mdiv.appendChild(ndiv);
+    ig.addEventListener('click',()=>{
+      ele.innerText='';
+      ndiv.parentNode.removeChild(ndiv);
+      let index=todo.indexOf(val);
+      console.log(index);
+      todo.splice(index,1);
+      console.log(todo);
+    })
+    ele.addEventListener('click',()=>{
+      ele.style.textDecoration='line-through';
+    })
+  }
+  console.log(todo);
+     
+    </script>
+</body>
+</html>
